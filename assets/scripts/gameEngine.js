@@ -47,31 +47,31 @@ const makeMove = function () {
 }
 // ugly and verbose, but the logic is clearer to me this way
 const horizontalVictory = function () {
-  if ((board[0] && board[1]) === (board[1] && board[2])) {
+  if ((board[0] === board[1]) && (board[1] === board[2])) {
     return true
-  } else if ((board[3] && board[4]) === (board[4] && board[5])) {
+  } else if ((board[3] === board[4]) && (board[4] === board[5])) {
     return true
-  } else if ((board[6] && board[7]) === (board[7] && board[8])) {
+  } else if ((board[6] === board[7]) && (board[7] === board[8])) {
     return true
   }
   return false
 }
 
 const verticalVictory = function () {
-  if ((board[1] && board[4]) === (board[4] && board[7])) {
+  if ((board[1] === board[4]) && (board[4] === board[7])) {
     return true
-  } else if ((board[2] && board[5]) === (board[5] && board[8])) {
+  } else if ((board[2] === board[5]) && (board[5] === board[8])) {
     return true
-  } else if ((board[3] && board[6]) === (board[6] && board[9])) {
+  } else if ((board[3] === board[6]) && (board[6] === board[9])) {
     return true
   }
   return false
 }
 
 const diagonalVictory = function () {
-  if ((board[0] && board[4]) === (board[4] && board[8])) {
+  if ((board[0] === board[4]) && (board[4] === board[8])) {
     return true
-  } else if ((board[2] && board[4]) === (board[4] && board[6])) {
+  } else if ((board[2] === board[4]) && (board[4] === board[6])) {
     return true
   }
   return false
@@ -91,6 +91,7 @@ const isGameWon = function () {
 // uncertainties on how to iterate through nested arrays forced me to fall back to a simple series of nested for loops. Another piece of code I hope to clean up when I have more time
 const isGameTied = function () {
   for (let i = 0; i < board.length; i++) {
+    // console.log(board[i])
     if (board[i] !== ('X' || 'O')) {
       return false
     }
