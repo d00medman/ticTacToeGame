@@ -68,11 +68,11 @@ const horizontalVictory = function () {
 }
 
 const verticalVictory = function () {
-  if ((board[0] === board[4]) && (board[4] === board[7])) {
+  if ((board[0] === board[3]) && (board[3] === board[6])) {
+    return true
+  } else if ((board[1] === board[4]) && (board[4] === board[7])) {
     return true
   } else if ((board[2] === board[5]) && (board[5] === board[8])) {
-    return true
-  } else if ((board[3] === board[6]) && (board[6] === board[9])) {
     return true
   }
   return false
