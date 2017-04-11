@@ -2,17 +2,15 @@
 
 const isGameOver = require('./isGameOver')
 
-let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+const board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 let currentPlayer = true
-
-let move
 
 // burndown code, used to manifest the board in the console
 const showBoard = function () {
   console.log(board[0], board[1], board[2])
   console.log(board[3], board[4], board[5])
-  console.log(board[6], board[7], board[8])
+  console.log(board[6], board[7], board[8] + '\n')
 }
 // end burndown
 
@@ -25,14 +23,14 @@ const isMoveLegal = function (space) {
 
 const makeMove = function () {
   // the prompt statement to right of the = is burndown
-  move -= 1
+  let move = prompt('Enter move')
+  move--
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
-  // console.log('your move is: ' + move)
-  // console.log('your mark is ' + mark)
-  // console.log('Is this move legal? ' + legality)
   if (!legality) {
+    // burndown code.
     console.log('illegal move! try again')
+    // burndown
     makeMove()
   } else {
     board[move] = mark
@@ -42,14 +40,22 @@ const makeMove = function () {
 }
 
 const endgame = function () {
-  return null
+  console.log('the game is over')
 }
 
 const playGame = function () {
   // mapBoard unnecessary in pure js implementation
   makeMove()
   if (isGameOver()) {
-    return endgame()
+    endgame()
   }
   currentPlayer = !currentPlayer
+}
+
+module.exports = {
+  board,
+  currentPlayer,
+  isMoveLegal,
+  showBoard,
+  makeMove
 }

@@ -3,7 +3,7 @@
 'use strict'
 
 // ugly and verbose, but the logic is clearer to me this way
-const horizontalVictory = function (board) {
+const horizontalVictory = function () {
   if (board[0] === board[1] === board[2]) {
     return true
   } else if (board[3] === board[4] === board[5]) {
@@ -14,7 +14,7 @@ const horizontalVictory = function (board) {
   return false
 }
 
-const verticalVictory = function (board) {
+const verticalVictory = function () {
   if (board[1] === board[4] === board[7]) {
     return true
   } else if (board[1] === board[4] === board[7]) {
@@ -25,7 +25,7 @@ const verticalVictory = function (board) {
   return false
 }
 
-const diagonalVictory = function (board) {
+const diagonalVictory = function () {
   if (board[0] === board[4] === board[8]) {
     return true
   } else if (board[2] === board[4] === board[8]) {
@@ -34,7 +34,7 @@ const diagonalVictory = function (board) {
   return false
 }
 
-const isGameWon = function (board) {
+const isGameWon = function () {
   if (verticalVictory(board)) {
     return true
   } else if (horizontalVictory(board)) {
@@ -46,7 +46,7 @@ const isGameWon = function (board) {
 }
 
 // uncertainties on how to iterate through nested arrays forced me to fall back to a simple series of nested for loops. Another piece of code I hope to clean up when I have more time
-const isGameTied = function (board) {
+const isGameTied = function () {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
       if (board[i][j] === undefined) {
@@ -58,7 +58,7 @@ const isGameTied = function (board) {
 }
 
 // this method is fairly simple, will return a boolean determining whether the game is over to whatever method handles the victory screen.
-const isGameOver = function (board) {
+const isGameOver = function () {
   return isGameWon(board) || isGameTied(board)
 }
 
