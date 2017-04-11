@@ -1,20 +1,13 @@
 'use strict'
 
-// commented out for testing purposes
-// const isGameOver = require('./isGameOver')
-
 // the numbers are burndown, used to determine where a new mark is placed
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-//burndown being used strictly for testing
-const fillBoard = function () {
-  board = [
-    'X', 'O', 'X',
-    'O', 'X', 'O',
-    'O', 'X', 'O'
-  ]
-}
 // burndown
+
+let games = 0
+let gamesWonX = 0
+let gamesWonO = 0
+let draws = 0
 
 let currentPlayer = true
 
@@ -124,13 +117,27 @@ const reset = function () {
 }
 
 const endgame = function () {
+  // burndown
   console.log('the game is over')
+  // burndown
   if (isGameWon()) {
     const winner = (currentPlayer === true) ? 'O' : 'X' // note on this: because of the way that move switches turn, it will be the losers turn when a winner is declared, necessitating this statement
+    winner === 'X' ? gamesWonX++ : gamesWonO++
+    // burndown
     console.log('The winner is ' + winner)
+    // burndown
   } else {
+    // burndown
+    draws++
     console.log('tie game')
+    // burndown
   }
+  games++
+  // burndown
+  console.log('You have played ' + games + ' games.')
+  console.log(draws + ' of them have been draws.')
+  console.log('X has won ' + gamesWonX + ' times, O has won ' + gamesWonO + ' times.')
+  // burndown
   reset()
 }
 
@@ -143,4 +150,8 @@ const playGame = function () {
     }
   }
   endgame()
+}
+
+module.exports = {
+  playGame
 }
