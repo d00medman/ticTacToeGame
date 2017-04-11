@@ -1,8 +1,12 @@
 'use strict'
 
+const isGameOver = require('./isGameOver')
+
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 let currentPlayer = true
+
+let move
 
 // burndown code, used to manifest the board in the console
 const showBoard = function () {
@@ -21,7 +25,6 @@ const isMoveLegal = function (space) {
 
 const makeMove = function () {
   // the prompt statement to right of the = is burndown
-  let move = prompt('Where would you like to play (please insert a number between 1 and 9)')
   move -= 1
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
@@ -38,10 +41,6 @@ const makeMove = function () {
   }
 }
 
-const isGameOver = function () {
-  return null
-}
-
 const endgame = function () {
   return null
 }
@@ -54,6 +53,3 @@ const playGame = function () {
   }
   currentPlayer = !currentPlayer
 }
-
-showBoard()
-makeMove()
