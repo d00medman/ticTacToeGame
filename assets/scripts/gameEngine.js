@@ -13,9 +13,7 @@ const showBoard = function () {
 // end burndown
 
 const isMoveLegal = function (space) {
-  // space !== ('X' || 'O') ? return true : return false
-  // I imagine the above ternary works, but it throws this problem
-  if (space === ('X' || 'O')) {
+  if (board[space] === ('X' || 'O')) {
     return false
   }
   return true
@@ -26,15 +24,19 @@ const makeMove = function () {
   let move = prompt('Where would you like to play (please insert a number between 1 and 9)')
   move -= 1
   const mark = (currentPlayer === true) ? 'X' : 'O'
-  console.log(move)
-  console.log(mark)
-  if (!isMoveLegal(move)) {
-    console.alert('illegal move! try again')
+  const legality = isMoveLegal(move)
+  // console.log('your move is: ' + move)
+  // console.log('your mark is ' + mark)
+  // console.log('Is this move legal? ' + legality)
+  if (legality === false) {
+    console.log('illegal move! try again')
     makeMove()
+  } else {
+    board[move] = mark
+    currentPlayer = !currentPlayer
+    // teardown code used to display the board
+    showBoard()
   }
-  board[move] = mark
-  currentPlayer = !currentPlayer
-  showBoard()
 }
 
 const isGameOver = function () {
@@ -55,4 +57,3 @@ const playGame = function () {
 }
 
 showBoard()
-makeMove()
