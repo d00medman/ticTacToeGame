@@ -2,7 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const gameEngine = require('./gameEngine')
+const playGame = require('./playGame')
 
 $(() => {
   setAPIOrigin(location, config)
