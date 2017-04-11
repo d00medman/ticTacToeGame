@@ -28,13 +28,12 @@ const makeMove = function () {
   // console.log('your move is: ' + move)
   // console.log('your mark is ' + mark)
   // console.log('Is this move legal? ' + legality)
-  if (legality === false) {
+  if (!legality) {
     console.log('illegal move! try again')
     makeMove()
   } else {
     board[move] = mark
     currentPlayer = !currentPlayer
-    // teardown code used to display the board
     showBoard()
   }
 }
@@ -57,3 +56,4 @@ const playGame = function () {
 }
 
 showBoard()
+makeMove()
