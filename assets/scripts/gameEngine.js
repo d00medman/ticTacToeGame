@@ -6,6 +6,16 @@
 // the numbers are burndown, used to determine where a new mark is placed
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+//burndown being used strictly for testing
+const fillBoard = function () {
+  board = [
+    'X', 'O', 'X',
+    'O', 'X', 'O',
+    'O', 'X', 'O'
+  ]
+}
+// burndown
+
 let currentPlayer = true
 
 // burndown code, used to manifest the board in the console
@@ -58,7 +68,7 @@ const horizontalVictory = function () {
 }
 
 const verticalVictory = function () {
-  if ((board[1] === board[4]) && (board[4] === board[7])) {
+  if ((board[0] === board[4]) && (board[4] === board[7])) {
     return true
   } else if ((board[2] === board[5]) && (board[5] === board[8])) {
     return true
@@ -91,8 +101,7 @@ const isGameWon = function () {
 // uncertainties on how to iterate through nested arrays forced me to fall back to a simple series of nested for loops. Another piece of code I hope to clean up when I have more time
 const isGameTied = function () {
   for (let i = 0; i < board.length; i++) {
-    // console.log(board[i])
-    if (board[i] !== ('X' || 'O')) {
+    if (board[i] !== 'X' && board[i] !== 'O') {
       return false
     }
   }
@@ -122,7 +131,7 @@ const endgame = function () {
   } else {
     console.log('tie game')
   }
-  // reset()
+  reset()
 }
 
 const playGame = function () {
@@ -135,5 +144,3 @@ const playGame = function () {
   }
   endgame()
 }
-
-playGame()
