@@ -27,9 +27,9 @@ const isMoveLegal = function (space) {
   return true
 }
 
-const markBoard = function (event) {
-  const whichCell = $(event.target).attr('data-id')
-  return whichCell
+const getTargetCell = function (event) {
+  const targetCell = $(event.target).attr('data-id')
+  return targetCell
 }
 
 const markDisplay = function (event) {
@@ -44,7 +44,7 @@ console.log('')
 // burndown
 
 const makeMove = function (event) {
-  let move = markBoard(event)
+  let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
@@ -168,7 +168,7 @@ const endgame = function () {
 const playGame = function () {
   let endCon = false
   while (endCon === false) {
-    makeMove()
+    makeMove() // I am almost certain that this method is now fubar because of fundamental changes made to the make move function. Couple this with a less temporally bounded game implementation and I think it is entirely possible that makeMove is now the core functionality of this game.
     if (isGameOver() === true) {
       endCon = !endCon
     }
