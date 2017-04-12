@@ -107,15 +107,14 @@ const reset = function (event) {
 
 // Displays the results of the game, appends the scoreboard and resets the game.
 const endgame = function () {
-  $('.alert').text('The game is over')
+  $('.alert').text('The game is over.')
   if (isGameWon()) {
     const winner = (currentPlayer === true) ? 'O' : 'X' // note on this: because of the way that move switches turn, it will be the losers turn when a winner is declared, necessitating this statement
     winner === 'X' ? winsX++ : winsO++
-    $('.alert2').text('The winner is ' + winner) // This persists into next game: should be fixed
+    $('.alert2').text('The winner is ' + winner + '!') // This persists into next game: should be fixed
   } else {
     draws++
-    $('.alert').text('Tie Game')
-    console.log('tie game')
+    $('.alert').text('Tie Game.')
   }
   games++
   $('.games').text(games)
@@ -130,10 +129,10 @@ const makeMove = function (event) {
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const alertMark = (currentPlayer !== true) ? 'X' : 'O'
-  $('.alert').text('It is ' + alertMark + "'s turn")
+  $('.alert').text('It is ' + alertMark + "'s turn.")
   const legality = isMoveLegal(move)
   if (!legality) {
-    $('.alert').text('illegal move! try again')
+    $('.alert').text('illegal move, try again.')
   } else {
     markDisplay(event)
     board[move] = mark
@@ -157,7 +156,6 @@ const playGame = function () {
 
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
-  $('.reset').on('click', reset)
 }
 
 module.exports = {
