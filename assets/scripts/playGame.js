@@ -1,14 +1,15 @@
 'use strict'
 
-// slashes are burndown, being used to represent empty board in console for testing purposes
+// game board
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-// burndown
 
+// scoreboard variables
 let games = 0
 let gamesWonX = 0
 let gamesWonO = 0
 let draws = 0
 
+// Current player. X is linked to true, O is linked to false
 let currentPlayer = true
 
 // burndown code, used to manifest the board in the console
@@ -17,9 +18,9 @@ const showBoard = function () {
   console.log(board[3], board[4], board[5])
   console.log(board[6], board[7], board[8] + '\n')
 }
-// burndown to be replaced with mapboard
+// burndown
 
-// There is some wierd shit here.
+// checks for legality of given move
 const isMoveLegal = function (space) {
   if (board[space] === 'X' || board[space] === 'O') {
     return false
@@ -27,11 +28,13 @@ const isMoveLegal = function (space) {
   return true
 }
 
+// returns value of clicked cell for makeMove
 const getTargetCell = function (event) {
   const targetCell = $(event.target).attr('data-id')
   return targetCell
 }
 
+// mutates the board in makeMove once a move is confirmed legal
 const markDisplay = function (event) {
   const whichCell = $(event.target).attr('data-id')
   const whichMark = (currentPlayer === true) ? 'X' : 'O'
@@ -39,11 +42,7 @@ const markDisplay = function (event) {
   return whichCell
 }
 
-// burndown template
-console.log('')
-// burndown
-
-// ugly and verbose, but the logic is clearer to me this way
+// a series of victory checks. They are ugly and verbose, but the logic is clearer to me this way
 const horizontalVictory = function () {
   if ((board[0] === board[1]) && (board[1] === board[2])) {
     return true
@@ -75,6 +74,7 @@ const diagonalVictory = function () {
   return false
 }
 
+// a function which runs the three victory check functions to determine whether or not the game is over.
 const isGameWon = function () {
   if (verticalVictory()) {
     return true
@@ -86,7 +86,7 @@ const isGameWon = function () {
   return false
 }
 
-// uncertainties on how to iterate through nested arrays forced me to fall back to a simple series of nested for loops. Another piece of code I hope to clean up when I have more time
+// a function used to determine whether the game is tied. Only fires when entire board is filled. A stretch goal would be having this function fire when any chance of victory has been precluded
 const isGameTied = function () {
   for (let i = 0; i < board.length; i++) {
     if (board[i] !== 'X' && board[i] !== 'O') {
@@ -96,7 +96,7 @@ const isGameTied = function () {
   return true
 }
 
-// this method is fairly simple, will return a boolean determining whether the game is over to whatever method handles the victory screen.
+// checks whether the game has over using the victory and tie checks.
 const isGameOver = function () {
   if (isGameWon()) {
     return true
@@ -106,12 +106,14 @@ const isGameOver = function () {
   return false
 }
 
+// resets the board. Linked to the reset button. Also gets called in the endgame function.
 const reset = function (event) {
   $('.cell').text('')
   currentPlayer = true
   board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 }
 
+// Displays the results of the game, appends the scoreboard and resets the game.
 const endgame = function () {
   // burndown
   console.log('the game is over')
