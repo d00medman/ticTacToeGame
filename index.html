@@ -3,6 +3,7 @@
     <head>
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="./assets/styles/index.scss" rel="stylesheet" type="text/css">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -46,44 +47,44 @@
               <input type="submit" name="submit" value="Sign Out.">
             </form>
           </div>
-          <div class="game-board">
-            <div class="container">
-            <div class="row">
-              <div class="inner" data-id ="0">
-                <button class="cell" data-id="0" id="0" type="button"></button>
-              </div>
-              <div class="inner" data-id ="1">
-                <button class="cell" data-id="1" id="1" type="button"></button>
-              </div>
-              <div class="inner" data-id ="2">
-                <button class="cell" data-id="2" id="2" type="button"></button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="inner" data-id ="3">
-                <button class="cell" data-id="3" id="3" type="button"></button>
-              </div>
-              <div class="inner" data-id ="4">
-                <button class="cell" data-id="4" id="4" type="button"></button>
-              </div>
-              <div class="inner" data-id ="5">
-                <button class="cell" data-id="5" id="5" type="button"></button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="inner" data-id ="6">
-                <button class="cell" data-id="6" id="6" type="button"></button>
-              </div>
-              <div class="inner" data-id ="7">
-                <button class="cell" data-id="7" id="7" type="button"></button>
-              </div>
-              <div class="inner" data-id ="8">
-                <button class="cell" data-id="8" id="8" type="button"></button>
-              </div>
-            </div>
-          </div>
-          <button class="reset" type="button">reset</button>
-        </div>
+          <div>
+    <table class="game-board" id="exbutton" align= "center" summary="Tic Tac Toe Game Board">
+      <tr>
+        <td class="square">
+          <button class="cell" data-id="00" id="00" type="button"></button>
+        </td>
+        <td class="square v">
+          <button class="cell" data-id="01" id="01" type="button"></button>
+        </td>
+        <td>
+          <button class="cell" data-id='02' id="02" type="button"></button>
+        </td class="square">
+      </tr>
+      <tr>
+        <td class="square h">
+          <button class="cell" data-id='10' id="10"type="button"></button>
+        </td>
+        <td class="square v h">
+          <button class="cell" data-id='11' id='11' type="button"></button>
+        </td>
+        <td class="square h">
+          <button class="cell" data-id='12' id='12' type="button"></button>
+        </td>
+      </tr>
+      <tr>
+        <td class="square">
+          <button class="cell" data-id='20' id='20' type="button"></button>
+        </td>
+        <td class="square v">
+          <button class="cell" data-id='21' id='21' type="button"></button>
+        </td>
+        <td class="square">
+          <button class="cell" data-id='22' id='22' type="button"></button>
+        </td>
+      </tr>
+    </table>
+    <button class="reset" type="button" onclick="reset()">reset</button>
+  </div>
         <footer>
           <div class="scoreboard">
             <h3>Games played:</h3>
