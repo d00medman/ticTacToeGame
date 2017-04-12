@@ -28,14 +28,21 @@ const isMoveLegal = function (space) {
 }
 
 const markBoard = function (event) {
+  console.log(event)
+  console.log(event.target)
+  // issue is that whichCell fails to set
   const whichCell = $(this).attr('data-id')
   const whichMark = (currentPlayer === true) ? 'X' : 'O'
   $('#' + whichCell).text(whichMark)
   return whichCell
 }
 
+// burndown
+console.log('')
+// burndown
+
 const makeMove = function (event) {
-  let move = markBoard(event) // concern: is this the same event being passed through makeMove
+  let move = markBoard(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
