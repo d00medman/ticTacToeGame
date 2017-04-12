@@ -1,7 +1,7 @@
 'use strict'
 
-// the numbers are burndown, used to determine where a new mark is placed
-let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+// slashes are burndown, being used to represent empty board in console for testing purposes
+let board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
 // burndown
 
 let games = 0
@@ -47,7 +47,6 @@ const makeMove = function (event) {
     // burndown code.
     console.log('illegal move! try again' + '\n')
     // burndown
-    makeMove()
   } else {
     // not quite burndown, but will almost certainly need to be altered, as i will not be returning a clean number
     // not burndown, but will require significant rework
@@ -55,7 +54,7 @@ const makeMove = function (event) {
     //
     currentPlayer = !currentPlayer
     // burndown
-    console.log('----')
+    console.log('~~~~~')
     showBoard()
     // burndown
   }
@@ -116,16 +115,26 @@ const isGameTied = function () {
 // this method is fairly simple, will return a boolean determining whether the game is over to whatever method handles the victory screen.
 const isGameOver = function () {
   if (isGameWon()) {
+    // burndown template
+    console.log('victory')
+    // burndown
     return true
   } else if (isGameTied()) {
+    // burndown template
+    console.log('Tie')
+    // burndown
     return true
   }
+  // burndown template
+  console.log('No')
+  // burndown
   return false
 }
 
 const reset = function (event) {
   $('.cell').text('')
   currentPlayer = true
+  board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
 }
 
 const endgame = function () {
@@ -167,6 +176,9 @@ const playGame = function () {
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
   $('.reset').on('click', reset)
+  // burndown for testing
+  $('.victoryCheck').on('click', isGameOver)
+  // burndown. Also doesn't work. Not super pressing, however.
 }
 
 module.exports = {
