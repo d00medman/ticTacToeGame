@@ -3,9 +3,7 @@
 const store = require('../store.js')
 
 const signUpSuccess = (response) => {
-  // burndown
-  console.log(response)
-  // burndown
+  $('.loginAlert').text('You have signed up! Sign in to play!')
 }
 
 const signUpFailure = (error) => {
@@ -13,14 +11,9 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (response) => {
-  // burndown
-  console.log(response)
-  console.log('you are signed in')
   store.user = response.user
-  // burndown
-  // lets see if this works.
   document.querySelector('.gameDisplay').style.visibility = 'visible'
-  document.querySelector('.login-info').style.visibility = 'hidden'
+  document.querySelector('.login-info').style.visibility = 'collapse'
   document.querySelector('footer').style.visibility = 'visible'
 }
 
@@ -29,9 +22,7 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = (response) => {
-  // burndown
-  console.log('password changed')
-  // burndown
+  $('.loginAlert').text('I could have sworn I hid this form. You are one canny user.')
 }
 
 const changePasswordFailure = (error) => {
@@ -39,9 +30,8 @@ const changePasswordFailure = (error) => {
 }
 
 const signOutSuccess = (response) => {
-  // burndown
-  console.log('signed out')
-  // burndown
+  $('.logoutAlert').text('You are logged out')
+  $('.loginAlert').text('Log in to play!')
   const board = document.querySelector('.gameDisplay')
   board.style.visibility = 'hidden'
   const login = document.querySelector('.login-info')
