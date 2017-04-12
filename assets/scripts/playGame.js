@@ -1,7 +1,7 @@
 'use strict'
 
 // slashes are burndown, being used to represent empty board in console for testing purposes
-let board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
+let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 // burndown
 
 let games = 0
@@ -109,7 +109,7 @@ const isGameOver = function () {
 const reset = function (event) {
   $('.cell').text('')
   currentPlayer = true
-  board = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
+  board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 }
 
 const endgame = function () {
@@ -174,9 +174,6 @@ const playGame = function () {
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
   $('.reset').on('click', reset)
-  // burndown for testing
-  $('.victoryCheck').on('click', isGameOver)
-  // burndown. Also doesn't work. Not super pressing, however.
 }
 
 module.exports = {
