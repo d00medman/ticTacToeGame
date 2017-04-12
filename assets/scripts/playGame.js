@@ -28,16 +28,13 @@ const isMoveLegal = function (space) {
 }
 
 const markBoard = function (event) {
-  console.log(event)
-  console.log(event.target)
-  // issue is that whichCell fails to set
-  const whichCell = $(this).attr('data-id')
+  const whichCell = $(event.target).attr('data-id')
   const whichMark = (currentPlayer === true) ? 'X' : 'O'
   $('#' + whichCell).text(whichMark)
   return whichCell
 }
 
-// burndown
+// burndown template
 console.log('')
 // burndown
 
