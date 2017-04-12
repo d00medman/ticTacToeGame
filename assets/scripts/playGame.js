@@ -17,7 +17,7 @@ const showBoard = function () {
   console.log(board[3], board[4], board[5])
   console.log(board[6], board[7], board[8] + '\n')
 }
-// burndown
+// burndown to be replaced with mapboard
 
 // There is some wierd shit here.
 const isMoveLegal = function (space) {
@@ -30,6 +30,7 @@ const isMoveLegal = function (space) {
 const makeMove = function () {
   // burndown, as move will be drawn from the dom
   let move = prompt('Enter move')
+  // burndown
   move--
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
@@ -40,12 +41,14 @@ const makeMove = function () {
     makeMove()
   } else {
     // not quite burndown, but will almost certainly need to be altered, as i will not be returning a clean number
+    // not burndown, but will require significant rework
     board[move] = mark
+    //
     currentPlayer = !currentPlayer
     // burndown
     console.log('----')
-    // burndown
     showBoard()
+    // burndown
   }
 }
 // ugly and verbose, but the logic is clearer to me this way
