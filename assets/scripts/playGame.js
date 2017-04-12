@@ -5,20 +5,12 @@ let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 // scoreboard variables
 let games = 0
-let gamesWonX = 0
-let gamesWonO = 0
+let winsX = 0
+let winsO = 0
 let draws = 0
 
 // Current player. X is linked to true, O is linked to false
 let currentPlayer = true
-
-// burndown code, used to manifest the board in the console
-const showBoard = function () {
-  console.log(board[0], board[1], board[2])
-  console.log(board[3], board[4], board[5])
-  console.log(board[6], board[7], board[8] + '\n')
-}
-// burndown
 
 // checks for legality of given move
 const isMoveLegal = function (space) {
@@ -115,27 +107,21 @@ const reset = function (event) {
 
 // Displays the results of the game, appends the scoreboard and resets the game.
 const endgame = function () {
-  // burndown
-  console.log('the game is over')
-  // burndown
+  $('.alert').text('The game is over')
   if (isGameWon()) {
     const winner = (currentPlayer === true) ? 'O' : 'X' // note on this: because of the way that move switches turn, it will be the losers turn when a winner is declared, necessitating this statement
-    winner === 'X' ? gamesWonX++ : gamesWonO++
-    // burndown
-    console.log('The winner is ' + winner)
-    // burndown
+    winner === 'X' ? winsX++ : winsO++
+    $('.alert2').text('The winner is ' + winner)
   } else {
-    // burndown
     draws++
+    $('.alert').text('Tie Game')
     console.log('tie game')
-    // burndown
   }
   games++
-  // burndown
-  console.log('You have played ' + games + ' games.')
-  console.log(draws + ' of them have been draws.')
-  console.log('X has won ' + gamesWonX + ' times, O has won ' + gamesWonO + ' times.')
-  // burndown
+  $('.games').text(games)
+  $('.draws').text(draws)
+  $('.winsX').text(winsX)
+  $('.winsO').text(winsO)
   reset()
 }
 
@@ -143,19 +129,15 @@ const makeMove = function (event) {
   let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
+  const alertMark = (currentPlayer !== true) ? 'X' : 'O'
+  $('.alert').text('It is ' + alertMark + "'s turn")
   const legality = isMoveLegal(move)
   if (!legality) {
-    // burndown code.
-    console.log('illegal move! try again' + '\n')
-    // burndown
+    $('.alert').text('illegal move! try again')
   } else {
     markDisplay(event)
     board[move] = mark
     currentPlayer = !currentPlayer
-    // burndown
-    console.log('~~~~~')
-    showBoard()
-    // burndown
   }
   if (isGameOver() === true) {
     endgame()

@@ -13,8 +13,9 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Tic Tac Toe</h1>
-
+      <h1>Tic</h1>
+      <h1>Tac</h1>
+      <h1>Toe</h1>
       <h1>Login</h1>
       <h3>Please login to create a game</h3>
       <div class="login-info">
@@ -49,6 +50,8 @@
           </div>
           <div>
     <table class="game-board" id="exbutton" align= "center" summary="Tic Tac Toe Game Board">
+      <h4 class="alert">Please sign in to play</h4>
+      <h4 class="alert2"></h4>
       <tr>
         <td class="square">
           <button class="cell" data-id="0" id="0" type="button"></button>
@@ -87,10 +90,10 @@
   </div>
         <footer>
           <div class="scoreboard">
-            <h3>Games played:</h3>
-            <h3>draws:</h3>
-            <h3>X wins:</h3>
-            <h3>O wins:</h3>
+            <h3>Games played: <span class="games">0</span></h3>
+            <h3>draws: <span class="draws">0</span></h3>
+            <h3>X wins: <span class="winsX">0</span></h3>
+            <h3>O wins: <span class="winsO">0</span></h3>
           </div>
         </footer>
   </body>
