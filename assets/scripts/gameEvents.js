@@ -20,7 +20,7 @@ const reset = function (event) {
   // burndown
   console.log('test')
   // burndown
-  $('.cell').text('')
+
 }
 
 const addHandlers = () => {

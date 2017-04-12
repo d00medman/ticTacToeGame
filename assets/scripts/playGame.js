@@ -27,6 +27,16 @@ const isMoveLegal = function (space) {
   return true
 }
 
+const mark = function (event) {
+  // burndown
+  console.log('test')
+  // burndown
+  const whichCell = $(this).attr('data-id')
+  const whichMark = (currentPlayer === true) ? 'X' : 'O'
+  $('#' + whichCell).text(whichMark)
+  currentPlayer = !currentPlayer
+}
+
 const makeMove = function () {
   // burndown, as move will be drawn from the dom
   let move = prompt('Enter move')
@@ -114,8 +124,8 @@ const isGameOver = function () {
   return false
 }
 
-const reset = function () {
-  board = board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+const reset = function (event) {
+  $('.cell').text('')
   currentPlayer = true
 }
 
@@ -155,6 +165,12 @@ const playGame = function () {
   endgame()
 }
 
+const addHandlers = () => {
+  $('.cell').on('click', mark)
+  $('.reset').on('click', reset)
+}
+
 module.exports = {
-  playGame
+  playGame,
+  addHandlers
 }

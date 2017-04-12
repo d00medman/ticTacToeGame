@@ -20,7 +20,7 @@ $(() => {
   authEvents.addHandlers()
 })
 
-const gameEvents = require('./gameEvents.js')
+const gameEvents = require('./playGame.js')
 
 $(() => {
   gameEvents.addHandlers()
