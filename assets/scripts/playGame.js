@@ -137,17 +137,6 @@ const endgame = function () {
   reset()
 }
 
-// const playGame = function () {
-//   let endCon = false
-//   while (endCon === false) {
-//     makeMove() // I am almost certain that this method is now fubar because of fundamental changes made to the make move function. Couple this with a less temporally bounded game implementation and I think it is entirely possible that makeMove is now the core functionality of this game.
-//     if (isGameOver() === true) {
-//       endCon = !endCon
-//     }
-//   }
-//   endgame()
-// }
-
 const makeMove = function (event) {
   let move = getTargetCell(event)
   move = parseInt(move)
@@ -169,6 +158,17 @@ const makeMove = function (event) {
   if (isGameOver() === true) {
     endgame()
   }
+}
+
+const playGame = function () {
+  let endCon = false
+  while (endCon === false) {
+    makeMove() // I am almost certain that this method is now fubar because of fundamental changes made to the make move function. Couple this with a less temporally bounded game implementation and I think it is entirely possible that makeMove is now the core functionality of this game.
+    if (isGameOver() === true) {
+      endCon = !endCon
+    }
+  }
+  endgame()
 }
 
 const addHandlers = () => {
