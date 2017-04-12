@@ -29,6 +29,11 @@ const isMoveLegal = function (space) {
 
 const markBoard = function (event) {
   const whichCell = $(event.target).attr('data-id')
+  return whichCell
+}
+
+const markDisplay = function (event) {
+  const whichCell = $(event.target).attr('data-id')
   const whichMark = (currentPlayer === true) ? 'X' : 'O'
   $('#' + whichCell).text(whichMark)
   return whichCell
@@ -48,10 +53,8 @@ const makeMove = function (event) {
     console.log('illegal move! try again' + '\n')
     // burndown
   } else {
-    // not quite burndown, but will almost certainly need to be altered, as i will not be returning a clean number
-    // not burndown, but will require significant rework
+    markDisplay(event)
     board[move] = mark
-    //
     currentPlayer = !currentPlayer
     // burndown
     console.log('~~~~~')
