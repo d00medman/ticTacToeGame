@@ -3,7 +3,9 @@
 const store = require('../store.js')
 
 const signUpSuccess = (response) => {
+  // burndown
   console.log(response)
+  // burndown
 }
 
 const signUpFailure = (error) => {
@@ -11,9 +13,11 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (response) => {
+  // burndown
   console.log(response)
   console.log('you are signed in')
   store.user = response.user
+  // burndown
 }
 
 const signInFailure = (error) => {
@@ -21,7 +25,9 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = (response) => {
+  // burndown
   console.log('password changed')
+  // burndown
 }
 
 const changePasswordFailure = (error) => {
@@ -29,7 +35,9 @@ const changePasswordFailure = (error) => {
 }
 
 const signOutSuccess = (response) => {
+  // burndown
   console.log('signed out')
+  // burndown
 }
 
 const signOutFailure = (error) => {

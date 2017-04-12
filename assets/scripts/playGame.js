@@ -111,7 +111,7 @@ const endgame = function () {
   if (isGameWon()) {
     const winner = (currentPlayer === true) ? 'O' : 'X' // note on this: because of the way that move switches turn, it will be the losers turn when a winner is declared, necessitating this statement
     winner === 'X' ? winsX++ : winsO++
-    $('.alert2').text('The winner is ' + winner)
+    $('.alert2').text('The winner is ' + winner) // This persists into next game: should be fixed
   } else {
     draws++
     $('.alert').text('Tie Game')
