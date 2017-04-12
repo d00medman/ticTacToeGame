@@ -43,25 +43,6 @@ const markDisplay = function (event) {
 console.log('')
 // burndown
 
-const makeMove = function (event) {
-  let move = getTargetCell(event)
-  move = parseInt(move)
-  const mark = (currentPlayer === true) ? 'X' : 'O'
-  const legality = isMoveLegal(move)
-  if (!legality) {
-    // burndown code.
-    console.log('illegal move! try again' + '\n')
-    // burndown
-  } else {
-    markDisplay(event)
-    board[move] = mark
-    currentPlayer = !currentPlayer
-    // burndown
-    console.log('~~~~~')
-    showBoard()
-    // burndown
-  }
-}
 // ugly and verbose, but the logic is clearer to me this way
 const horizontalVictory = function () {
   if ((board[0] === board[1]) && (board[1] === board[2])) {
@@ -118,19 +99,10 @@ const isGameTied = function () {
 // this method is fairly simple, will return a boolean determining whether the game is over to whatever method handles the victory screen.
 const isGameOver = function () {
   if (isGameWon()) {
-    // burndown template
-    console.log('victory')
-    // burndown
     return true
   } else if (isGameTied()) {
-    // burndown template
-    console.log('Tie')
-    // burndown
     return true
   }
-  // burndown template
-  console.log('No')
-  // burndown
   return false
 }
 
@@ -165,15 +137,38 @@ const endgame = function () {
   reset()
 }
 
-const playGame = function () {
-  let endCon = false
-  while (endCon === false) {
-    makeMove() // I am almost certain that this method is now fubar because of fundamental changes made to the make move function. Couple this with a less temporally bounded game implementation and I think it is entirely possible that makeMove is now the core functionality of this game.
-    if (isGameOver() === true) {
-      endCon = !endCon
-    }
+// const playGame = function () {
+//   let endCon = false
+//   while (endCon === false) {
+//     makeMove() // I am almost certain that this method is now fubar because of fundamental changes made to the make move function. Couple this with a less temporally bounded game implementation and I think it is entirely possible that makeMove is now the core functionality of this game.
+//     if (isGameOver() === true) {
+//       endCon = !endCon
+//     }
+//   }
+//   endgame()
+// }
+
+const makeMove = function (event) {
+  let move = getTargetCell(event)
+  move = parseInt(move)
+  const mark = (currentPlayer === true) ? 'X' : 'O'
+  const legality = isMoveLegal(move)
+  if (!legality) {
+    // burndown code.
+    console.log('illegal move! try again' + '\n')
+    // burndown
+  } else {
+    markDisplay(event)
+    board[move] = mark
+    currentPlayer = !currentPlayer
+    // burndown
+    console.log('~~~~~')
+    showBoard()
+    // burndown
   }
-  endgame()
+  if (isGameOver() === true) {
+    endgame()
+  }
 }
 
 const addHandlers = () => {
