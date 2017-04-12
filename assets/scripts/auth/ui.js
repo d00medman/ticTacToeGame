@@ -19,8 +19,9 @@ const signInSuccess = (response) => {
   store.user = response.user
   // burndown
   // lets see if this works.
-  const board = document.querySelector('.gameDisplay')
-  board.style.visibility = 'visible'
+  document.querySelector('.gameDisplay').style.visibility = 'visible'
+  document.querySelector('.login-info').style.visibility = 'hidden'
+  document.querySelector('footer').style.visibility = 'visible'
 }
 
 const signInFailure = (error) => {
@@ -43,6 +44,9 @@ const signOutSuccess = (response) => {
   // burndown
   const board = document.querySelector('.gameDisplay')
   board.style.visibility = 'hidden'
+  const login = document.querySelector('.login-info')
+  login.style.visibility = 'visible'
+  document.querySelector('footer').style.visibility = 'hidden'
 }
 
 const signOutFailure = (error) => {

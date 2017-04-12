@@ -54,15 +54,18 @@ img{
 footer{
   text-transform: uppercase;
   padding:0px 20px;
-  background-color: black;
-  color: white;
   font-size: 14px;
   letter-spacing: .08em;
   font-weight: 500;
+  visibility: collapse;
 }
 
 .gameDisplay{
   visibility: hidden;
+}
+
+.login-info{
+  visibility: visible;
 }
 
 .credits{
@@ -90,4 +93,8 @@ footer{
 .h{
     border-top:2px solid #000;
     border-bottom:2px solid #000;
+}
+
+#change-password{
+  visibility: hidden;
 }
