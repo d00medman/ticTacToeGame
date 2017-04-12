@@ -18,6 +18,8 @@ const signInSuccess = (response) => {
   console.log('you are signed in')
   store.user = response.user
   // burndown
+  // lets see if this works.
+  document.querySelector('.gameDisplay').style.display = 'visible'
 }
 
 const signInFailure = (error) => {
