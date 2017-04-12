@@ -2,7 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const playGame = require('./playGame')
+
 
 $(() => {
   setAPIOrigin(location, config)
@@ -20,3 +20,5 @@ const authEvents = require('./auth/events.js')
 $(() => {
   authEvents.addHandlers()
 })
+
+const playGame = require('./playGame')

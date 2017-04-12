@@ -12,9 +12,10 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>Tic Tac Toe</h1>
 
       <h1>Login</h1>
+      <h3>Please login to create a game</h3>
       <div class="login-info">
             <form id="sign-up">
               <fieldset>
@@ -44,10 +45,52 @@
             <form id ="sign-out">
               <input type="submit" name="submit" value="Sign Out.">
             </form>
-            </body>
           </div>
           <div class="game-board">
-
+            <div class="container">
+            <div class="row">
+              <div class="inner" data-id ="0">
+                <button class="cell" data-id="0" id="0" type="button"></button>
+              </div>
+              <div class="inner" data-id ="1">
+                <button class="cell" data-id="1" id="1" type="button"></button>
+              </div>
+              <div class="inner" data-id ="2">
+                <button class="cell" data-id="2" id="2" type="button"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="inner" data-id ="3">
+                <button class="cell" data-id="3" id="3" type="button"></button>
+              </div>
+              <div class="inner" data-id ="4">
+                <button class="cell" data-id="4" id="4" type="button"></button>
+              </div>
+              <div class="inner" data-id ="5">
+                <button class="cell" data-id="5" id="5" type="button"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="inner" data-id ="6">
+                <button class="cell" data-id="6" id="6" type="button"></button>
+              </div>
+              <div class="inner" data-id ="7">
+                <button class="cell" data-id="7" id="7" type="button"></button>
+              </div>
+              <div class="inner" data-id ="8">
+                <button class="cell" data-id="8" id="8" type="button"></button>
+              </div>
+            </div>
           </div>
-    </body>
+          <button class="reset" type="button">reset</button>
+        </div>
+        <footer>
+          <div class="scoreboard">
+            <h3>Games played:</h3>
+            <h3>draws:</h3>
+            <h3>X wins:</h3>
+            <h3>O wins:</h3>
+          </div>
+        </footer>
+  </body>
 </html>

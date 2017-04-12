@@ -1,33 +1,4 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.container {
-  display: none;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  overflow: hidden;
-  width: 300px;
-}
-
-.inner{
-  display: inline-block;
-  float:left;
-}
-
-.cell {
-  float: none;
-  background: lightgray;
-  border-radius: 1px;
-  display: inline-block;
-  height: 74px;
-  margin: 6px;
-  overflow: hidden;
-  text-align: center;
-  width: 74px;
-}
-
-.row{
-  float: left;
-}
+@import "styles.css";
