@@ -29,19 +29,23 @@ const isMoveLegal = function (space) {
 
 const mark = function (event) {
   // burndown
-  console.log('test')
+  showBoard()
   // burndown
   const whichCell = $(this).attr('data-id')
   const whichMark = (currentPlayer === true) ? 'X' : 'O'
   $('#' + whichCell).text(whichMark)
+  // burndown, used for testing purpose in front-end version of this method
   currentPlayer = !currentPlayer
+  // burndown
+  return whichCell
 }
 
-const makeMove = function () {
+const makeMove = function () { // so makemove will will need to take an event as an argument
   // burndown, as move will be drawn from the dom
-  let move = prompt('Enter move')
+  let move = prompt('Enter move') // let move = mark()
   // burndown
-  move--
+  move-- // This will almost certainly be replaced by converting move to a string
+  // burndown
   const mark = (currentPlayer === true) ? 'X' : 'O'
   const legality = isMoveLegal(move)
   if (!legality) {
@@ -166,7 +170,7 @@ const playGame = function () {
 }
 
 const addHandlers = () => {
-  $('.cell').on('click', mark)
+  $('.cell').on('click', mark) // will likely need to replace this with makeMove
   $('.reset').on('click', reset)
 }
 
