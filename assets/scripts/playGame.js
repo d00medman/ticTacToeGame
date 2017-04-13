@@ -231,7 +231,7 @@ const onGetGame = function (event) {
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
   $('.index').on('click', onIndex)
-  $('.show').on('submit', onGetGame)
+  $('.singleIndex').on('submit', onGetGame)
 }
 
 module.exports = {

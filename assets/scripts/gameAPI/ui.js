@@ -24,6 +24,8 @@ const updateFailure = (error) => {
 const indexSuccess = (response) => {
   console.log(response)
   console.log('index returned')
+  $('.statLine').text('Here are the games you have played')
+  $('.indexStats').text(response) // does not work. Need to find a way to render the game list in a readable fashion
 }
 
 const indexFailure = (error) => {
