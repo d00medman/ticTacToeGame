@@ -204,7 +204,7 @@ const playGame = function () {
   endgame()
 }
 
-const index = function (event) {
+const onIndex = function (event) {
   event.preventDefault()
   api.index()
     .then(ui.indexSuccess)
@@ -213,6 +213,7 @@ const index = function (event) {
 
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
+  $('.index').on('click', onIndex)
 }
 
 module.exports = {
