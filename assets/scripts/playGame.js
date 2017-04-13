@@ -140,15 +140,15 @@ const endgame = function () {
 // used to determine the games data to be passed through the create method (and possibly the patch method as well, depending on its requirements)
 const createData = function () {
   return {
-    id: games++,
+    id: games,
     cells: board,
     over: isGameOver(),
     player_x: {
-      id: games++,
+      id: games,
       email: store.user.id
     },
     player_o: {
-      id: games++,
+      id: games,
       email: store.user.id
     }
   }

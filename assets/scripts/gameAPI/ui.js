@@ -18,7 +18,7 @@ const updateSuccess = (response) => {
 }
 
 const updateFailure = (error) => {
-  console.log(error)
+  console.error(error)
 }
 
 const indexSuccess = (response) => {
@@ -26,10 +26,26 @@ const indexSuccess = (response) => {
   console.log('index returned')
 }
 
+const indexFailure = (error) => {
+  console.error(error)
+}
+
+const showSuccess = (response) => {
+  console.log(response)
+  console.log('Single game returned')
+}
+
+const showFailure = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
   updateFailure,
-  indexSuccess
+  indexSuccess,
+  indexFailure,
+  showSuccess,
+  showFailure
 }
