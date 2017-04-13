@@ -34,8 +34,8 @@ const changePasswordFailure = (error) => {
 const signOutSuccess = (response) => {
   $('.logoutAlert').text('You are logged out')
   $('.loginAlert').text('Log in to play!')
-  document.querySelector('.gameDisplay').board.style.visibility = 'hidden'
-  document.querySelector('.login-info').login.style.visibility = 'visible'
+  document.querySelector('.gameDisplay').style.visibility = 'hidden'
+  document.querySelector('.login-info').style.visibility = 'visible'
   document.querySelector('footer').style.visibility = 'hidden'
 }
 
