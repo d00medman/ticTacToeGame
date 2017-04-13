@@ -219,7 +219,6 @@ const onGetGame = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const game = data.game
-
   if (game.id.length !== 0) {
     api.show(game.id)
       .then(ui.onSuccess)
