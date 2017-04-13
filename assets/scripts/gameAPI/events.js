@@ -33,9 +33,16 @@ const engine = require('../playGame')
 
 const onCreate = function () {
   // need to figure out what I pass to the api method as data
-  const data = engine.parseData()
+  const data = engine.createData()
   api.create(data)
     .then(ui.createSuccess)
+}
+
+const onUpdate = function () {
+  const data = engine.updateData() // could likely implement both. I imagine that the function behaves differently depending on what data you pass through it.
+  api.update(data)
+    .then(ui.updateSuccess)
+    .then(ui.updateFailure)
 }
 
 // one core question I have been trying to figure out: where should I put the main method bodies of the game API methods? The auth events are able to live in their own file largely because they are called w/click events, but many of these will not be (the index method is maybe the only one that will). Because of this dynamic, I am lead to believe that I will in fact need to buil these events out in the game engine's file.

@@ -11,7 +11,18 @@ const createFailure = (error) => {
   console.error(error)
 }
 
+const updateSuccess = (response) => {
+  console.log(response)
+  console.log('game updated successfully')
+}
+
+const updateFailure = (error) => {
+  console.log(error)
+}
+
 module.exports = {
   createSuccess,
-  createFailure
+  createFailure,
+  updateSuccess,
+  updateFailure
 }

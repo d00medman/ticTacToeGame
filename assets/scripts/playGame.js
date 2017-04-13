@@ -134,8 +134,8 @@ const endgame = function () {
 }
 
 // used to determine the games data to be passed through the create method (and possibly the patch method as well, depending on its requirements)
-const parseData = function () {
-  const game = {
+const createData = function () {
+  return {
     id: games++,
     cells: board,
     over: isGameOver(),
@@ -148,17 +148,26 @@ const parseData = function () {
       email: store.user.id
     }
   }
-  return game
+}
+
+const updateData = function (ind, val) {
+  return {
+    cell: {
+      index: ind,
+      value: val
+    },
+    over: isGameOver()
+  }
 }
 
 const makeMove = function (event) {
   // creates a new game with the API if it is the first move of the game.
   if (moves === 0) {
-    api.create(parseData())
+    api.create(createData())
     .then(ui.createSuccess)
     .then(ui.createFailure)
   }
-  // results in a 401 error
+  // depending on how ambitions I feel, could implement the update method to create player_o at around this point
   let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
@@ -170,6 +179,11 @@ const makeMove = function (event) {
   } else {
     markDisplay(event)
     board[move] = mark
+    // Updates the API with the current move.
+    api.update(updateData(move, mark))
+      .then(ui.updateSuccess)
+      .then(ui.updateFailure)
+    // note that there could be an isse regarding the casing of mark. Documentation represents the value as lowercase while the mark is uppercase. May be nothing, may cause a bug. if so, add toLowerCase() to mark in the arguments
     currentPlayer = !currentPlayer
     moves++
   }
