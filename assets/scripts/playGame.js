@@ -161,13 +161,6 @@ const updateData = function (ind, val) {
 }
 
 const makeMove = function (event) {
-  // creates a new game with the API if it is the first move of the game.
-  if (moves === 0) {
-    api.create(createData())
-    .then(ui.createSuccess)
-    .then(ui.createFailure)
-  }
-  // depending on how ambitions I feel, could implement the update method to create player_o at around this point
   let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
@@ -180,7 +173,11 @@ const makeMove = function (event) {
     markDisplay(event)
     board[move] = mark
     // Updates the API with the current move.
-    if (moves > 0) {
+    if (moves === 0) {
+      api.create(createData())
+      .then(ui.createSuccess)
+      .then(ui.createFailure)
+    } else {
       api.update(updateData(move, mark))
       .then(ui.updateSuccess)
       .then(ui.updateFailure)
