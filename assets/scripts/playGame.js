@@ -224,8 +224,6 @@ const onGetGame = function (event) {
     api.show(game.id)
       .then(ui.onSuccess)
       .catch(ui.onError)
-  } else {
-    console.log('Please provide a game id!')
   }
 }
 

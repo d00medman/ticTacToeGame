@@ -8,7 +8,8 @@ const signUpSuccess = (response) => {
 }
 
 const signUpFailure = (error) => {
-  console.error(error)
+  $('.loginAlert').text('Not a viable username.')
+  // console.error(error)
 }
 
 const signInSuccess = (response) => {
@@ -20,15 +21,17 @@ const signInSuccess = (response) => {
 }
 
 const signInFailure = (error) => {
-  console.error(error)
+  $('.loginAlert').text('login attempt failed.')
+  // console.error(error)
 }
 
 const changePasswordSuccess = (response) => {
-  $('.loginAlert').text('I could have sworn I hid this form. You are one canny user.')
+  $('.loginAlert').text('Password changed successfully.')
 }
 
 const changePasswordFailure = (error) => {
-  console.error(error)
+  $('.loginAlert').text('Password change failed.')
+  // console.error(error)
 }
 
 const signOutSuccess = (response) => {
@@ -40,7 +43,8 @@ const signOutSuccess = (response) => {
 }
 
 const signOutFailure = (error) => {
-  console.error(error)
+  $('.logoutAlert').text('You have somehow failed logged out')
+  //console.error(error)
 }
 
 module.exports = {

@@ -4,41 +4,41 @@ const store = require('../store.js')
 
 const createSuccess = (response) => {
   store.game = response.game
-  console.log(response)
-  console.log('game logged successfully')
+  // console.log(response)
+  // console.log('game logged successfully')
 }
 
 const createFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const updateSuccess = (response) => {
-  console.log(response)
-  console.log('game updated successfully')
+  // console.log(response)
+  // console.log('game updated successfully')
 }
 
 const updateFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const indexSuccess = (response) => {
-  console.log(response)
+  // console.log(response)
   const games = response.games.length
-  console.log('index returned')
+  // console.log('index returned')
   $('.thisMany').text(games)
 }
 
 const indexFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 const showSuccess = (response) => {
-  console.log(response)
-  console.log('Single game returned')
+  // console.log(response)
+  // console.log('Single game returned')
 }
 
 const showFailure = (error) => {
-  console.error(error)
+  // console.error(error)
 }
 
 module.exports = {
