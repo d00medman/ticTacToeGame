@@ -158,7 +158,7 @@ const makeMove = function (event) {
     .then(ui.createSuccess)
     .then(ui.createFailure)
   }
-  // new code
+  // results in a 401 error
   let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
