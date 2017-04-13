@@ -208,6 +208,7 @@ const playGame = function () {
   endgame()
 }
 
+// AJAX GET methods
 const onIndex = function (event) {
   event.preventDefault()
   api.index()
@@ -231,7 +232,6 @@ const onGetGame = function (event) {
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
   $('.index').on('click', onIndex)
-  $('.singleIndex').on('submit', onGetGame)
 }
 
 module.exports = {
