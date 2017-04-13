@@ -5,6 +5,10 @@ const store = require('./store.js')
 const api = require('./gameAPI/api')
 const ui = require('./gameAPI/ui')
 
+// possibly burndown, depending on how I move forward w/ implementation of index
+const getFormFields = require(`../../lib/get-form-fields`)
+// burndown?
+
 // game board -> concerned this implementation will not properly interface w/API. May need to remove numbers.
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -211,9 +215,24 @@ const onIndex = function (event) {
     .catch(ui.indexError)
 }
 
+const onGetGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const game = data.game
+
+  if (game.id.length !== 0) {
+    api.show(game.id)
+      .then(ui.onSuccess)
+      .catch(ui.onError)
+  } else {
+    console.log('Please provide a game id!')
+  }
+}
+
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
   $('.index').on('click', onIndex)
+  $('.show').on('submit', onGetGame)
 }
 
 module.exports = {
