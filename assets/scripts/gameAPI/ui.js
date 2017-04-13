@@ -21,9 +21,15 @@ const updateFailure = (error) => {
   console.log(error)
 }
 
+const indexSuccess = (response) => {
+  console.log(response)
+  console.log('index returned')
+}
+
 module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  indexSuccess
 }

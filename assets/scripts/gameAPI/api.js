@@ -28,7 +28,15 @@ const update = (data) => {
   })
 }
 
+const index = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   create,
-  update
+  update,
+  index
 }

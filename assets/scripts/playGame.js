@@ -204,6 +204,13 @@ const playGame = function () {
   endgame()
 }
 
+const index = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.indexSuccess)
+    .catch(ui.indexError)
+}
+
 const addHandlers = () => {
   $('.cell').on('click', makeMove)
 }
