@@ -8,7 +8,9 @@ const ui = require('./ui')
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  // burndown? My guess is yes, should ask a consultant anyways
   console.log(data)
+  // burndown?
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
