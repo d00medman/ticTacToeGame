@@ -7,6 +7,11 @@ const createSuccess = (response) => {
   console.log('game logged successfully')
 }
 
+const createFailure = (error) => {
+  console.error(error)
+}
+
 module.exports = {
-  createSuccess
+  createSuccess,
+  createFailure
 }

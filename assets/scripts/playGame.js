@@ -156,6 +156,7 @@ const makeMove = function (event) {
   if (moves === 0) {
     api.create(parseData())
     .then(ui.createSuccess)
+    .then(ui.createFailure)
   }
   // new code
   let move = getTargetCell(event)
