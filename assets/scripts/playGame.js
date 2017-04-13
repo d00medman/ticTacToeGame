@@ -152,11 +152,13 @@ const createData = function () {
 
 const updateData = function (ind, val) {
   return {
-    cell: {
-      index: ind,
-      value: val
-    },
-    over: isGameOver()
+    game: {
+      cell: {
+        index: ind,
+        value: val
+      },
+      over: isGameOver()
+    }
   }
 }
 
@@ -172,17 +174,17 @@ const makeMove = function (event) {
   } else {
     markDisplay(event)
     board[move] = mark
-    // Updates the API with the current move.
+    // Updates the API with the current move. If it is the first move, it creates the game. Otherwise, it simply updates the board.
     if (moves === 0) {
       api.create(createData())
       .then(ui.createSuccess)
       .then(ui.createFailure)
     } else {
+      // throwing a 400 error.
       api.update(updateData(move, mark))
       .then(ui.updateSuccess)
       .then(ui.updateFailure)
     }
-    // note that there could be an isse regarding the casing of mark. Documentation represents the value as lowercase while the mark is uppercase. May be nothing, may cause a bug. if so, add toLowerCase() to mark in the arguments
     currentPlayer = !currentPlayer
     moves++
   }
