@@ -3,6 +3,7 @@
 const store = require('../store.js')
 
 const createSuccess = (response) => {
+  store.game = response.game
   console.log(response)
   console.log('game logged successfully')
 }

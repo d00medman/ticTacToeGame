@@ -180,9 +180,9 @@ const makeMove = function (event) {
     markDisplay(event)
     board[move] = mark
     // Updates the API with the current move.
-    api.update(updateData(move, mark))
-      .then(ui.updateSuccess)
-      .then(ui.updateFailure)
+    // api.update(updateData(move, mark))
+    //   .then(ui.updateSuccess)
+    //   .then(ui.updateFailure)
     // note that there could be an isse regarding the casing of mark. Documentation represents the value as lowercase while the mark is uppercase. May be nothing, may cause a bug. if so, add toLowerCase() to mark in the arguments
     currentPlayer = !currentPlayer
     moves++

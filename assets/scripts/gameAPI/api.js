@@ -9,6 +9,7 @@ const create = (data) => {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
+      // look at how store.user is set, then apply that principal to game
     },
     data
   })
@@ -16,9 +17,9 @@ const create = (data) => {
 
 const update = (data) => {
   return $.ajax({
-    // there could be an error here as I am not entirely sure where the game is being stored and how to retrieve the game's id.
+    // I was right! this is where the error is thrown.
     url: config.apiOrigin + '/games/' + store.game.id,
-    // sketchy code
+    // code is correct; issue is that game is not being created in store.
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
