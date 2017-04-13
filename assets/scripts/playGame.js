@@ -1,6 +1,11 @@
 'use strict'
 
-// game board
+// access to store necessary in order to access user email for data parsing
+const store = require('./store.js')
+const api = require('./gameAPI/api')
+const ui = require('./gameAPI/ui')
+
+// game board -> concerned this implementation will not properly interface w/API. May need to remove numbers.
 let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 // scoreboard variables
@@ -8,6 +13,9 @@ let games = 0
 let winsX = 0
 let winsO = 0
 let draws = 0
+
+// used to track how many moves have been made
+let moves = 0
 
 // Current player. X is linked to true, O is linked to false
 let currentPlayer = true
@@ -103,6 +111,7 @@ const reset = function (event) {
   $('.cell').text('')
   currentPlayer = true
   board = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  moves = 0
 }
 
 // Displays the results of the game, appends the scoreboard and resets the game.
@@ -124,7 +133,31 @@ const endgame = function () {
   reset()
 }
 
+// used to determine the games data to be passed through the create method (and possibly the patch method as well, depending on its requirements)
+const parseData = function () {
+  const game = {
+    id: games++,
+    cells: board,
+    over: isGameOver(),
+    player_x: {
+      id: games++,
+      email: store.user.id
+    },
+    player_o: {
+      id: games++,
+      email: store.user.id
+    }
+  }
+  return game
+}
+
 const makeMove = function (event) {
+  // creates a new game with the API if it is the first move of the game.
+  if (moves === 0) {
+    api.create(parseData())
+    .then(ui.createSuccess)
+  }
+  // new code
   let move = getTargetCell(event)
   move = parseInt(move)
   const mark = (currentPlayer === true) ? 'X' : 'O'
@@ -137,6 +170,7 @@ const makeMove = function (event) {
     markDisplay(event)
     board[move] = mark
     currentPlayer = !currentPlayer
+    moves++
   }
   if (isGameOver() === true) {
     endgame()
