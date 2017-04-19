@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="./assets/styles/index.scss" rel="stylesheet" type="text/css">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1>Tic Tac Toe</h1>
+      <div class="login-info">
+        <h1>Login</h1>
+        <h3 class="logoutAlert"></h3>
+        <h3 class="loginAlert">Log in to play!</h3>
+            <form id="sign-up">
+              <fieldset>
+                <legend>Sign up!</legend>
+                <input type="text" name="credentials[email]" placeholder="email">
+                <input type="password" name="credentials[password]" placeholder="password">
+                <input type="password" name="credentials[password_confirmation]" placeholder="password_confirmation">
+                <input type="submit" name="submit" value="Sign up!">
+              </fieldset>
+            </form>
+            <form id ="sign-in">
+              <fieldset>
+                <legend>Sign in</legend>
+                <input type="text" name="credentials[email]" placeholder="email">
+                <input type="password" name="credentials[password]" placeholder="password">
+                <input type="submit" name="submit" value="Sign in!">
+              </fieldset>
+            </form>
+
+          </div>
+          <div class="gameDisplay">
+    <table class="gameBoard" id="exbutton" align= "center" summary="Tic Tac Toe Game Board">
+      <h4 class="alert">Welcome to Tic Tac Toe! X plays first!</h4>
+      <h4 class="alert2"></h4>
+      <tr>
+        <td class="square">
+          <button class="cell" data-id="0" id="0" type="button"></button>
+        </td>
+        <td class="square v">
+          <button class="cell" data-id="1" id="1" type="button"></button>
+        </td>
+        <td>
+          <button class="cell" data-id='2' id="2" type="button"></button>
+        </td class="square">
+      </tr>
+      <tr>
+        <td class="square h">
+          <button class="cell" data-id='3' id="3"type="button"></button>
+        </td>
+        <td class="square v h">
+          <button class="cell" data-id='4' id='4' type="button"></button>
+        </td>
+        <td class="square h">
+          <button class="cell" data-id='5' id='5' type="button"></button>
+        </td>
+      </tr>
+      <tr>
+        <td class="square">
+          <button class="cell" data-id='6' id='6' type="button"></button>
+        </td>
+        <td class="square v">
+          <button class="cell" data-id='7' id='7' type="button"></button>
+        </td>
+        <td class="square">
+          <button class="cell" data-id='8' id='8' type="button"></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+        <footer>
+          <div class="scoreboard">
+            <h3>Games played: <span class="games">0</span></h3>
+            <h3>draws: <span class="draws">0</span></h3>
+            <h3>X wins: <span class="winsX">0</span></h3>
+            <h3>O wins: <span class="winsO">0</span></h3>
+          </div>
+          <div>
+          <form id ="sign-out">
+            <input type="submit" name="submit" value="Sign Out.">
+          </form>
+          <h5 class="logoutAlert"></h5>
+          <form id="change-password">
+            <fieldset>
+              <legend>Change Password</legend>
+              <input type="password" name="passwords[old]" placeholder="Old password">
+              <input type="password" name="passwords[new]" placeholder="new password">
+              <input type="submit" name="submit" value="Change Password!">
+            </fieldset>
+          </form>
+        </div>
+          <button class="index" type="button">Statistics</button>
+          <h5>This user has played <span class="thisMany">0</span> games.</h5>
+        </footer>
+  </body>
+</html>
