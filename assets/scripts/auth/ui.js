@@ -4,7 +4,7 @@ const store = require('../store.js')
 
 const signUpSuccess = (response) => {
   $('.loginAlert').text('You have signed up! Sign in to play!')
-  document.querySelector('#change-password').style.visibility = 'visible'
+  // document.querySelector('#change-password').style.visibility = 'visible'
 }
 
 const signUpFailure = (error) => {
@@ -17,7 +17,7 @@ const signInSuccess = (response) => {
   document.querySelector('.gameDisplay').style.visibility = 'visible'
   document.querySelector('.login-info').style.visibility = 'collapse'
   document.querySelector('footer').style.visibility = 'visible'
-  document.querySelector('#change-password').style.visibility = 'hidden'
+  // document.querySelector('#change-password').style.visibility = 'visible'
 }
 
 const signInFailure = (error) => {
@@ -26,11 +26,11 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = (response) => {
-  $('.loginAlert').text('Password changed successfully.')
+  $('.logoutAlert').text('Password changed successfully.')
 }
 
 const changePasswordFailure = (error) => {
-  $('.loginAlert').text('Password change failed.')
+  $('.logoutAlert').text('Original password incorrect, please input the correct one to proceed')
   // console.error(error)
 }
 
