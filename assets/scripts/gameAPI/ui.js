@@ -2,44 +2,29 @@
 
 const store = require('../store.js')
 
+
+// Creates game in API
 const createSuccess = (response) => {
   store.game = response.game
-  // console.log(response)
-  // console.log('game logged successfully')
 }
 
-const createFailure = (error) => {
-  // console.error(error)
-}
+const createFailure = (error) => {}
 
-const updateSuccess = (response) => {
-  // console.log(response)
-  // console.log('game updated successfully')
-}
+const updateSuccess = (response) => {}
 
-const updateFailure = (error) => {
-  // console.error(error)
-}
+const updateFailure = (error) => {}
 
+// Allows for display of statistics
 const indexSuccess = (response) => {
-  // console.log(response)
   const games = response.games.length
-  // console.log('index returned')
   $('.thisMany').text(games)
 }
 
-const indexFailure = (error) => {
-  // console.error(error)
-}
+const indexFailure = (error) => {}
 
-const showSuccess = (response) => {
-  // console.log(response)
-  // console.log('Single game returned')
-}
+const showSuccess = (response) => {}
 
-const showFailure = (error) => {
-  // console.error(error)
-}
+const showFailure = (error) => {}
 
 module.exports = {
   createSuccess,

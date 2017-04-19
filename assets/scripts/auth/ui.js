@@ -2,38 +2,40 @@
 
 const store = require('../store.js')
 
+// Displays that user has signed up successfully
 const signUpSuccess = (response) => {
   $('.loginAlert').text('You have signed up! Sign in to play!')
-  // document.querySelector('#change-password').style.visibility = 'visible'
 }
 
+// Displays users failure to sign up
 const signUpFailure = (error) => {
   $('.loginAlert').text('Not a viable username.')
-  // console.error(error)
 }
 
+// Hides login-info section, sets the board and footer to visible on success
 const signInSuccess = (response) => {
   store.user = response.user
   document.querySelector('.gameDisplay').style.visibility = 'visible'
   document.querySelector('.login-info').style.visibility = 'collapse'
   document.querySelector('footer').style.visibility = 'visible'
-  // document.querySelector('#change-password').style.visibility = 'visible'
 }
 
+// Displays users failure to sign in
 const signInFailure = (error) => {
   $('.loginAlert').text('login attempt failed.')
-  // console.error(error)
 }
 
+// Displays that user has successfully changed password
 const changePasswordSuccess = (response) => {
   $('.logoutAlert').text('Password changed successfully.')
 }
 
+// Displays that user has failed to change password
 const changePasswordFailure = (error) => {
   $('.logoutAlert').text('Original password incorrect, please input the correct one to proceed')
-  // console.error(error)
 }
 
+// displays that user has logged out. Sets board and footer to hidden, makes login-info visible
 const signOutSuccess = (response) => {
   $('.logoutAlert').text('You are logged out')
   $('.loginAlert').text('Log in to play!')
@@ -42,9 +44,9 @@ const signOutSuccess = (response) => {
   document.querySelector('footer').style.visibility = 'hidden'
 }
 
+// Makes fun of you if you fail to sign out
 const signOutFailure = (error) => {
   $('.logoutAlert').text('You have somehow failed logged out')
-  //console.error(error)
 }
 
 module.exports = {
